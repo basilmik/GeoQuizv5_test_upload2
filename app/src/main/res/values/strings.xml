@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">GeoQuiz</string>
+
+    <string name="true_button">true.</string>
+    <string name="false_button">false.</string>
+    <string name="next_button">next</string>
+    <string name="previous_button">previous</string>
+
+    <string name = "correct_toast">Correct!</string>
+    <string name = "incorrect_toast">Incorrect!</string>
+
+    <string name="question_australia">canberra is the capital of australia</string>
+    <string name="question_oceans">the pacific ocean is large</string>
+    <string name="question_africa">nile is in egypt</string>
+    <string name="question_americas">the amazon</string>
+    <string name="question_asia">baikal tastes good</string>
+    <string name="question_mideast">suez canal</string>
+
+</resources>
