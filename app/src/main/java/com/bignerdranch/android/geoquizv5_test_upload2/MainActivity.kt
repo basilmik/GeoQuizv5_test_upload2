@@ -18,15 +18,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var trueButton: Button
     private lateinit var falseButton: Button
     private lateinit var nextButton: ImageButton
-    private lateinit var prevButton: ImageButton
+
     private lateinit var questionTextView: TextView
 
     private val quizViewModel: QuizViewModel by lazy() {
         ViewModelProvider(this).get(QuizViewModel::class.java)
-
     }
-
-
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -37,50 +34,23 @@ class MainActivity : AppCompatActivity() {
         val currentIndex = savedInstanceState?.getInt(KEY_INDEX,0)?:0
         quizViewModel.currentIndex = currentIndex
 
-
-        //val provider: ViewModelProvider = ViewModelProvider(this)
-        //val quizViewModel = provider.get(QuizViewModel::class.java)
-        //Log.d(TAG,"Got a QuizViewModel: $quizViewModel")
-
         questionTextView = findViewById(R.id.question_text_view)
         nextButton= findViewById(R.id.next_button)
-        prevButton= findViewById(R.id.prev_button)
         trueButton = findViewById(R.id.true_button)
         falseButton = findViewById(R.id.false_button)
 
         trueButton.setOnClickListener { view: View ->
-            //if (questionBank[currentIndex].state == 0) checkAnswer(true)
-            //else
-            Toast.makeText(this, "already answered", Toast.LENGTH_SHORT)
-                .show()
+            checkAnswer(true)
         }
 
         falseButton.setOnClickListener { view: View ->
-            //if (questionBank[currentIndex].state == 0) checkAnswer(false)
-            //else
-            Toast.makeText(this, "already answered", Toast.LENGTH_SHORT)
-                .show()
+            checkAnswer(false)
         }
 
         nextButton.setOnClickListener { //view: View ->
             quizViewModel.moveToNext()
-            //currentIndex = (currentIndex + 1) % questionBank.size
             updateQuestion()
         }
-
-        /*prevButton.setOnClickListener { //view: View ->
-            currentIndex = (currentIndex - 1) % questionBank.size
-            if (currentIndex <= 0)
-               currentIndex = questionBank.size - 1
-            updateQuestion()
-        }
-
-        questionTextView.setOnClickListener { //view: View ->
-
-            currentIndex = (currentIndex + 1) % questionBank.size
-            updateQuestion()
-        }
-        */
 
         updateQuestion()
 
